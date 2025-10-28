@@ -11,7 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ template_data.title }}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'home/favicon.png' %}">
+    <title>Soccer Tracker</title>
 </head>
 <body class="theme-dark">
     <!--Header-->
@@ -33,7 +34,6 @@
     <!--Header-->
     <main class="page-shell">
       </div>
-      {% endif %}
       {% block content %}
       {% endblock content %}
     </main>

@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
-    {% extends "base.html" %}
-{% load static %}
 
 {% block content %}
 <div class="container py-4" style="max-width: 900px;">
   <section class="bubble-card mb-4">
     <h2 class="mb-2">About This Project</h2>
     <p class="mb-0">
-      This web app is a IRP group project built by Nathaniel Acosta, Jackson O'Connell, Adem Poshka, and Maitreya Kayyar..
-      It follows the Django <strong>MVT (Model–View–Template)</strong> architecture and targets a lightweight
-      job-seeking and matching workflow for early-career candidates and recruiters.
+      This web app is a IRP group project built for the Career Chase Hackathon, built by Nathaniel Acosta and Evan Acosta.
+      It follows the Django <strong>MVT (Model–View–Template)</strong> architecture and targets data analysts that 
+      want intuitive and effective data analysis of US Soccer matches. 
     </p>
   </section>
 
@@ -19,22 +17,19 @@
       <div class="card p-3 h-100">
         <h5 class="mb-2">What You Can Do</h5>
         <ul class="mb-0">
-          <li>Browse and search job postings from the home page.</li>
-          <li>Open a job detail page to view the full description.</li>
-          <li>Sign up / log in and manage your account (in progress).</li>
-          <li>Control what recruiters can see via <a href="{% url 'accounts:privacy' %}">Privacy Settings</a>.</li>
+          <li>Enter match data and view a visualized replay of the game.</li>
+          <li>Use the controls to play, pause, and scroll through the contents of the replay.</li>
+          <li>Take a snippet of the replay and view important data.</li>
         </ul>
       </div>
     </div>
 
     <div class="col-md-5">
       <div class="card p-3 h-100">
-        <h5 class="mb-2">In Scope for This Class</h5>
+        <h5 class="mb-2">In Scope for This Hackathon</h5>
         <ul class="mb-0">
-          <li>Core job CRUD (post, edit, delete) with ownership checks.</li>
-          <li>Recruiter vs. Job-Seeker roles (basic authorization).</li>
-          <li>Applicant privacy controls (field-level visibility).</li>
-          <li>Clean, testable views and templates (no magic).</li>
+          <li>Implement the ability to load a replay.</li>
+          <li>Take a snippet of replay and create/share data visualization graphs.</li>
         </ul>
       </div>
     </div>
@@ -43,38 +38,20 @@
   <div class="card p-3 mt-3">
     <h5 class="mb-2">Architecture at a Glance (MVT)</h5>
     <ul class="mb-0">
-      <li><strong>Models</strong>: Job, Profile (1:1 with User for roles & privacy).</li>
-      <li><strong>Views</strong>: Readable functions handling queries, auth gates, and context.</li>
+      <li><strong>Models</strong>: Matches to store data for easy access.</li>
+      <li><strong>Views</strong>: Readable and intuitive feedback and data visualization.</li>
       <li><strong>Templates</strong>: Bootstrap-styled pages extending a shared <code>base.html</code>.</li>
     </ul>
   </div>
 
-  <div class="row g-3 mt-1">
-    <div class="col-md-6">
-      <div class="card p-3 h-100">
-        <h5 class="mb-2">Roadmap (Next Iterations)</h5>
-        <ul class="mb-0">
-          <li>Job applications with status tracking.</li>
-          <li>Saved jobs & simple recommendations.</li>
-          <li>Recruiter pipeline basics (shortlist, notes).</li>
-          <li>Map views for job locations and commute radius.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card p-3 h-100">
-        <h5 class="mb-2">Team & Course</h5>
-        <p class="mb-2">
-          Built by CS2340 Section B team #7, including Nathaniel Acosta, Jackson O'Connell, Adem Poshka, and Maitreya Kayyar. Through this project, we are practicing requirements analysis, iterative design, and 
-          testable implementation. We’re optimizing for clarity, maintainability, and shipping
-          incremental value each sprint.
+      <div class="card p-3 mt-3">
+        <h5 class="mb-2">Team</h5>
+        <p class="mb-0">
+          Built by Nathaniel Acosta and Evan Acosta. We are a duo of motivated CS students from Savannah, Georgia. 
+          This project is built using Django and streamlit functionality to display the visual replay, and 
+          SkillCorner for data and data visualization. 
         </p>
-        <ul class="mb-0">
-          <li>Sprint cadence: plan → build → demo → retro.</li>
-          <li>Definition of Done: tests pass, routes wired, templates render, UX acceptable.</li>
-        </ul>
       </div>
-    </div>
   </div>
 
   <section class="bubble-card mt-3">
@@ -83,6 +60,4 @@
     </p>
   </section>
 </div>
-{% endblock %}
-{% block content %}
 {% endblock %}
