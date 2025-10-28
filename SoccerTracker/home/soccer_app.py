@@ -1,6 +1,9 @@
 import streamlit as st
 from kloppy import metrica
 from st_soccer import TrackingComponent
+import pandas as pd
+import numpy as np
+import time
 
 
 BLUE = "#2b83ba"
@@ -49,9 +52,66 @@ def get_sample_data(limit=1000):
 def main():
     st.set_page_config(page_title="Tactics Board", page_icon=":soccer:")
     frames = get_sample_data()
-    st.markdown("## Streamlit Soccer Demo")
-    tc = TrackingComponent(frames=frames, home_color=RED, away_color=BLUE, loop="yes")
+    n_frames = len(frames)
 
+    #Initialize session state
+    if "frame_index" not in st.session_state:
+        st.session_state.frame_index = 0
+    if "playing" not in st.session_state:
+        st.session_state.playing = False
+    if "chunk" not in st.session_state:
+        st.session_state.chunk = (0, min(200, n_frames - 1))
+    
+
+    st.subheader("Select Replay Range")
+    st.session_state.chunk = st.slider(
+        "Frame Range",
+        0, n_frames - 1,
+        st.session_state.chunk,
+        step=1
+    )
+    start, end = st.session_state.chunk
+
+    if "curr_start" not in st.session_state:
+        st.session_state.curr_start = start
+    
+    st.subheader("Playback Controls")
+    col1, col2, col3 =st.columns([1,2,3])
+
+    with col1:
+        if st.button("Play"):
+            st.session_state.playing = True
+            st.rerun()
+
+    with col2:
+        if st.button("Pause"):
+            st.session_state.playing = False
+
+    with col3:
+        st.session_state.frame_index = st.slider(
+            "Frame",
+            start, end,
+            st.session_state.frame_index,
+            step=1
+        )
+
+    #Display current frames
+    if st.session_state.playing:
+        st.write(st.session_state.frame_index)
+        TrackingComponent(frames=frames[st.session_state.curr_start:end], home_color=RED, away_color=BLUE, loop="no")
+        st.session_state.frame_index += 1
+        if st.session_state.frame_index > end:
+            st.session_state.frame_index = start
+        time.sleep(0.033)
+        st.rerun()
+    else:
+        st.session_state.curr_start = st.session_state.frame_index
+        #If pause button is clicked, stop animation
+        st.write(st.session_state.frame_index)
+        #Needs to have frame:frame+2 because of js animation limitation, will not run on only 1 frame
+        TrackingComponent(frames=frames[st.session_state.frame_index:st.session_state.frame_index + 2], home_color=RED, away_color=BLUE, loop="no")
+
+    #TODO Data visualization using skill corner
 
 st.set_page_config(page_title="Tactics Board", page_icon=":soccer:")
 if __name__ == "__main__":
