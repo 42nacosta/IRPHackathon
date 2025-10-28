@@ -97,8 +97,9 @@ def main():
 
     #Display current frames
     if st.session_state.playing:
+        current_frame = TrackingComponent(frames=frames[st.session_state.curr_start:end], home_color=RED, away_color=BLUE, loop="no")
+        st.write(current_frame)
         st.write(st.session_state.frame_index)
-        TrackingComponent(frames=frames[st.session_state.curr_start:end], home_color=RED, away_color=BLUE, loop="no")
         st.session_state.frame_index += 1
         if st.session_state.frame_index > end:
             st.session_state.frame_index = start
