@@ -18,8 +18,12 @@
     <div id="root">
         <div class="streamlit-container" style="height:90vh; width:100%;">
             <!-- Need to update src to valid src when deployed, try streamlit community cloud -->
-            <iframe src="http://localhost:8501" width="80%" height="80%" frameborder="0"></iframe>
-        </div>  
+            <iframe src="http://localhost:8501" width="70%" height="80%" frameborder="0" class="ms-4 mt-4"></iframe>
+            <div data-mdb-range-init class="range">
+            <input type="range" class="form-range mb-15 ms-4" width=70% id="videoSlider" />
+            </div>
+        </div>
+          
     </div>
   </body>
 </html>
