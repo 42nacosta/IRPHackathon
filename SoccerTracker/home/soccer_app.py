@@ -2,13 +2,9 @@ import streamlit as st
 from kloppy import metrica
 from st_soccer import TrackingComponent
 
+
 BLUE = "#2b83ba"
 RED = "#d7191c"
-
-
-
-
-
 
 #sourced from streamlit example, git here: https://github.com/devinpleuler/streamlit-soccer/tree/master
 #TODO: Replace with actual match data from example match
@@ -34,7 +30,7 @@ def get_sample_data(limit=1000):
                 "team": "home" if player.team == home_team else "away",
             }
             frame_data.append(attrs)
-        
+
         try:
             ball_x, ball_y = f.ball_coordinates.x, f.ball_coordinates.y
             attrs = {

@@ -11,13 +11,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="{% static 'home/favicon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
     <title>Soccer Tracker</title>
 </head>
 <body class="theme-dark">
     <!--Header-->
     <nav class="p-3 navbar navbar-dark bg-dark navbar-expand-lg">
       <div class="container">
+        <img src="{% static 'images/Favicon.png' %}" alt="logo" height="40" class="me-2"/>
         <a class="navbar-brand" href="{% url 'home.index' %}">Soccer Tracker</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
