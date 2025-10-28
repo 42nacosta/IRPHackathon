@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container py-4" style="max-width: 900px;">
+  <section class="bubble-card mb-4">
+    <h2 class="mb-2">About This Project</h2>
+    <p class="mb-0">
+      This web app is a IRP group project built for the Career Chase Hackathon, built by Nathaniel Acosta and Evan Acosta.
+      It follows the Django <strong>MVT (Model–View–Template)</strong> architecture and targets data analysts that 
+      want intuitive and effective data analysis of US Soccer matches. 
+    </p>
+  </section>
+
+  <div class="row g-3">
+    <div class="col-md-7">
+      <div class="card p-3 h-100">
+        <h5 class="mb-2">What You Can Do</h5>
+        <ul class="mb-0">
+          <li>Enter match data and view a visualized replay of the game.</li>
+          <li>Use the controls to play, pause, and scroll through the contents of the replay.</li>
+          <li>Take a snippet of the replay and view important data.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <div class="card p-3 h-100">
+        <h5 class="mb-2">In Scope for This Hackathon</h5>
+        <ul class="mb-0">
+          <li>Implement the ability to load a replay.</li>
+          <li>Take a snippet of replay and create/share data visualization graphs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card p-3 mt-3">
+    <h5 class="mb-2">Architecture at a Glance (MVT)</h5>
+    <ul class="mb-0">
+      <li><strong>Models</strong>: Matches to store data for easy access.</li>
+      <li><strong>Views</strong>: Readable and intuitive feedback and data visualization.</li>
+      <li><strong>Templates</strong>: Bootstrap-styled pages extending a shared <code>base.html</code>.</li>
+    </ul>
+  </div>
+
+      <div class="card p-3 mt-3">
+        <h5 class="mb-2">Team</h5>
+        <p class="mb-0">
+          Built by Nathaniel Acosta and Evan Acosta. We are a duo of motivated CS students from Savannah, Georgia. 
+          This project is built using Django and streamlit functionality to display the visual replay, and 
+          SkillCorner for data and data visualization. 
+        </p>
+      </div>
+  </div>
+
+  <section class="bubble-card mt-3">
+    <p class="text-muted small mb-0">
+      Version {{ request.resolver_match.app_name|default:"home" }} · Django {{ django_version|default:"5.x" }}
+    </p>
+  </section>
+</div>
+{% endblock %}
